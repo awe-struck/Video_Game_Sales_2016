@@ -2,24 +2,33 @@
 
 # Introduction
 
-Video games have long been a source of entertainment with many factors leading to its success in sales and market growth. This project will use exploratory data analysis to examine these factors and uncover any insights found within the dataset. Specifically, the focus will be on the North American market and will
-data=
+Video games have long been a source of entertainment with many factors leading to its success in sales and market growth. This project will use exploratory data analysis to examine those factors and uncover any insights found within the dataset. Specifically, the focus of the analysis will be on the North American market.
 
-This information will be used to find trends, understand why these sales are being made and give data based business recommendations so game companies can captialbi on it
-to answer what has caused (genre , technology getting better, media and other campaigns like movies)the growth of sales and how can game companies captilize on it
+The goal of this analysis is to gain insight into the factors that incluence video game sales in the North American market and to use that information to give data based business recommendations.
 
-```
-fd
-```
+(to answer what has caused (genre , technology getting better, media and other campaigns like movies)the growth of sales and how can game companies captilize on it)
+
+<br />
+
+# Dataset Information
+
+This dataset was downloaded as a CSV file from [Kaggle](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) which itself scraped data  from vgchartz.com. Following the link to the dataset, the column headers provide a succint description of the type of information found within the dataset.
+This file contains video game sales data from 1980 to 2016 and has its sales fields in units of millions.
+
+
+Below is a brief summary of the columns from the cleaned dataset used in the analysis:
+
+![image](https://user-images.githubusercontent.com/115379520/197462826-95244c11-947d-4851-a656-be4b2787a790.png)
+
+<br />
 
 # Data Extraction and Cleaning
 
 - Here is a direct link to the SQL cleaning file
 
-This dataset was downloaded as a CSV file from [Kaggle](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) which itself scraped data  
-from vgchartz.com. Following the link to the dataset, the column headers provide a succint description of the type of information found within the dataset. This includes game titles, genres, publishers, sales, etc. The sales are listed in units of millions and the release years are from 1980-2016. Pre-cleaned this dataset contained 16719 rows.
+Pre-cleaned the CSV file contained 16719 rows. The file was then converted into a .xlss format and uploaded to Microsoft SSMS for analysis. I proceeded to create a copy table to store this information and filter for the columns relevant to the analysis. These dropped columns contained NULL values and was data that was not fully scrapped from metacritic. Thus, the columns critic score,critic count, user score, user count, developer and rating were dropped. 
 
-The CSV file was converted  into a .xlss format and uploaded to Microsoft SSMS for analysis. I proceeded to create a copy table to store this information and filter for the columns relevant to the analysis. These dropped columns contained NULL values and was data that was not fully scrapped from metacritic. Thus, the columns critic score,critic count, user score, user count, developer and rating were dropped. 
+To gain an general understanding of how consoles influenced the growth of sales, I decided to include the column Platform_Producer. This column contains information on the producer of the game consoles. This will be used as a general guage to see how technology growth has influenced sales in the NA market.
 
 
 ```
@@ -69,15 +78,15 @@ SELECT *
 FROM video_game_sales.dbo.copygames 
 ORDER BY Global_Sales DESC
 ```
+<br />
 
 ![image](https://user-images.githubusercontent.com/115379520/197377996-3c8c469c-c063-4bfc-b17c-72f65945feca.png)
 
 
 
+<br />
 
-
-
-The next step was to check for NULLs. In the dataset, the Name column had two values with missing information. Thus, I went onto the [source website](https://www.vgchartz.com/),found the missing game titles then updated the table. Following that, the year_of_release column was cleaned and rows with NULL values were deleted. Also any fields with out of bounds were deleted. Thus, resulting in 16445 rows in the dataset.
+The next step involved checking for NULL values. In the dataset, the Name column had two values with missing information which was updated using information for the [source website.](https://www.vgchartz.com/) Following that, the year_of_release column was cleaned. Any rows with values that were NULL or were greater than 2016 were deleted. Thus, resulting in 16445 rows in the cleaned dataset.
 
 ```
 SELECT *
@@ -100,7 +109,6 @@ DELETE FROM  video_game_sales.dbo.copygames
 WHERE Name ='Mortal Kombat II' AND Publisher = 'Acclaim Entertainment' AND Platform = 'GEN' AND NA_Sales = 0
 
 
-
 SELECT *
 FROM video_game_sales.dbo.copygames
 WHERE Year_of_Release > 2016
@@ -112,12 +120,15 @@ DELETE FROM video_game_sales.dbo.copygames
 WHERE Year_of_Release IS NULL OR Year_of_Release > 2016
 -- Deleted 273 rows which contained Year_of_Release fields that were NULL or contained values out of bounds
 
+
 SELECT *
 FROM video_game_sales.dbo.copygames 
--- COUNT 16445
+-- COUNT 16445 
 ```
 
-The data was then checked for any duplicates, of which there were none. Same with the Distinct values.
+<br />
+
+Next was briefly checking for duplicants and distinct values. There were no outliers or erroneous values, so nothing was deleted
 
 ```
 -- Duplicate check
@@ -133,10 +144,6 @@ FROM cte_dupl
 WHERE row_num > 1
 
 
-
-
---------------------------------------------------------------------------------------------------------------------------
-
 -- Check for Distinct Values
 
 SELECT DISTINCT  Year_of_Release
@@ -144,27 +151,65 @@ FROM video_game_sales.dbo.copygames
 ORDER BY Year_of_Release
 ```
 
-
+<br />
 
 # Data Analysis
 
-Did a quick check of the data and wanted to get a brief snapshot of the data beofre fully diving in. It turns out for top 10 games ever side are all nintendo  published and produced. With a max sales of 41.36 million, min of0, total sales of 4334.2 mioon and avg of 0.26 million
-```
-SELECT *
-FROM video_game_sales.dbo.copygames 
-ORDER BY Global_Sales DESC
-```
-![image](https://user-images.githubusercontent.com/115379520/197378547-344d1642-c4b5-479e-a33e-5853dd658a70.png)
+Before diving into the NA sales data, I did a quick check of the data to get a brief overview of the top level sales data. So I made a simple query and gathered a few descriptive statistics. At a brief glance, the top 10 global game sales are all Nintendo published and produced. Similarily 9 out of 10 of the top games for NA are also from Nintendo. This immediately leads to several questions: is being a game from the Nintendo brand the top video game company, the most important factor in sales? Why does Nintendo have the most sales in NA? How does its competition compare? How did this change over time? 
 
+Keeping these questions in mind, I proceeded to explore the rest of the data to answer these questions.
 
-If we dive in deeper, we can see that NA accounts for 49% of global says
 ```
 SELECT *
 FROM video_game_sales.dbo.copygames 
 ORDER BY Global_Sales DESC
 ```
 
-# insert pie/bar chart here of distriution
+<br />
+
+
+For the Global market, it With a total sales of 82.5 million, min of0, total sales of 4334.2 mioon and avg of 0.26 million
+
+![image](https://user-images.githubusercontent.com/115379520/197469794-58bf9861-0bba-4cf1-8467-8f2ac1e121f2.png)
+
+<br />
+
+For the NA market, it hadWith a max sales of 41.36 million, min of0, total sales of 4334.2 mioon and avg of 0.26 million
+
+![image](https://user-images.githubusercontent.com/115379520/197469794-58bf9861-0bba-4cf1-8467-8f2ac1e121f2.png)
+
+
+<br />
+
+With how similar the top 10 categories in both the global and NA market, I checked how NA performed relative to other regions. The SQL query revealed that from 8.82 billion global sales, the North American market is responsible for 49.24% of it with 4.34 billion sales. Even over time, the NA market is the dominate leader in sales which explains why the top 10 were nearly identical. 
+
+
+```
+SELECT 
+	SUM(Global_Sales) glb_sales, 
+	SUM(NA_Sales) na_sales,
+	FORMAT(SUM(NA_Sales)/SUM(Global_Sales), 'p') na_pct, 
+	SUM(EU_Sales) eu_sales,
+	format(SUM(EU_Sales)/SUM(Global_Sales),'p') eu_pct, 
+	SUM(JP_Sales) jp_sales,
+	format(SUM(JP_Sales)/SUM(Global_Sales),'p') jp_pct, 
+	SUM(Other_Sales) oth_sales,
+	format(SUM(Other_Sales)/SUM(Global_Sales), 'p') oth_pct
+FROM video_game_sales.dbo.copygames 
+
+```
+
+<br />
+
+![image](https://user-images.githubusercontent.com/115379520/197441930-9dc5c304-9695-4123-b717-bb0192d6d2bc.png)
+
+
+
+<br />
+
+To better understand how the sales are distributed, I segemented the sales based on genre. From this data, the top 5 genres in terms of sales are Action, Sports, Shooters, Platformers and Misc. Since, these 5 categories compose . I decided to focuse on those particular 
+![image](https://user-images.githubusercontent.com/115379520/197453795-195a744a-341b-4a9c-935a-f6daf25efae8.png)
+
 
 
 

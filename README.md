@@ -1,6 +1,6 @@
 # Exploratory Data Analysis on Video Game Sales (1980-2016)
 
-# Introduction
+## Introduction
 
 Video games have long been a source of entertainment with many factors leading to its success in sales and market growth. This project will use exploratory data analysis to examine those factors and uncover any insights found within the dataset. Specifically, the focus of the analysis will be on the North American market.
 
@@ -10,11 +10,10 @@ The goal of this analysis is to gain insight into the factors that incluence vid
 
 <br />
 
-# Dataset Information
+## Dataset Information
 
 This dataset was downloaded as a CSV file from [Kaggle](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) which itself scraped data  from vgchartz.com. Following the link to the dataset, the column headers provide a succint description of the type of information found within the dataset.
 This file contains video game sales data from 1980 to 2016 and has its sales fields in units of millions.
-
 
 Below is a brief summary of the columns from the cleaned dataset used in the analysis:
 
@@ -22,16 +21,18 @@ Below is a brief summary of the columns from the cleaned dataset used in the ana
 
 <br />
 
-# Data Extraction and Cleaning
+## Data Extraction and Cleaning
 
-- Here is a direct link to the SQL cleaning file
+- Here is a direct link to the SQL cleaning file:
 
-Pre-cleaned the CSV file contained 16719 rows. The file was then converted into a .xlss format and uploaded to Microsoft SSMS for analysis. I proceeded to create a copy table to store this information and filter for the columns relevant to the analysis. These dropped columns contained NULL values and was data that was not fully scrapped from metacritic. Thus, the columns critic score,critic count, user score, user count, developer and rating were dropped. 
+Pre-cleaned, the CSV file contained 16719 rows. The file was then converted into a .xlss format and uploaded to Microsoft SSMS for analysis. I proceeded to create a copy table to store this information and filter for the columns relevant to the analysis. These dropped columns contained NULL values and was data that was not fully scrapped from metacritic. Thus, the columns critic score,critic count, user score, user count, developer and rating were dropped. 
 
-To gain an general understanding of how consoles influenced the growth of sales, I decided to include the column Platform_Producer. This column contains information on the producer of the game consoles. This will be used as a general guage to see how technology growth has influenced sales in the NA market.
+To gain an general understanding of how consoles influenced the growth of sales, I included the column Platform_Producer. This column contains information on the producer of video game consoles. This will be used as a general guage to see how technology growth has influenced sales in the NA market.
 
 
-```
+<details>
+<summary>SQL Code: Filtered Table</summary>
+<pre>
 DROP TABLE IF EXISTS video_game_sales.dbo.copygames
 CREATE TABLE video_game_sales.dbo.copygames
 (
@@ -48,47 +49,48 @@ CREATE TABLE video_game_sales.dbo.copygames
 	Global_Sales float
 )
 INSERT INTO video_game_sales.dbo.copygames
-SELECT  
-    Name,
-    CASE 
-			WHEN Platform IN ('PC') THEN 'Misc Computer Company'
-			WHEN Platform IN ('NES', 'SNES', 'N64', 'GC', 'Wii', 'WiiU', 'GB', 'GBA', 'DS', '3DS') THEN 'Nintendo'
-			WHEN Platform IN ('PS','PS2','PS3','PS4','PSP','PSV') THEN 'Sony'
-			WHEN Platform IN ('XB', 'X360', 'XOne') THEN 'Microsoft'
-			WHEN Platform IN ('2600') THEN 'Atari'
-			WHEN Platform IN ('DC', 'SAT', 'GEN', 'GG', 'SCD') THEN 'Sega'
-			WHEN Platform IN ('WS') THEN 'Bandai'
-			WHEN Platform IN ('NG') THEN 'SNK'
-			WHEN Platform IN ('TG16', 'PCFX') THEN 'Nec'
-			WHEN Platform IN ('3DO') THEN 'Panasonic'
-		END Platform_Producer,
-		Platform,
-		Year_of_Release,
-		Genre,
-		Publisher,
-		NA_Sales,
-		EU_Sales,
-		JP_Sales,
-		Other_Sales,
-		Global_Sales
+	SELECT  
+    	Name,
+    	CASE 
+		WHEN Platform IN ('PC') THEN 'Misc Computer Company'
+		WHEN Platform IN ('NES', 'SNES', 'N64', 'GC', 'Wii', 'WiiU', 'GB', 'GBA', 'DS', '3DS') THEN 'Nintendo'
+		WHEN Platform IN ('PS','PS2','PS3','PS4','PSP','PSV') THEN 'Sony'
+		WHEN Platform IN ('XB', 'X360', 'XOne') THEN 'Microsoft'
+		WHEN Platform IN ('2600') THEN 'Atari'
+		WHEN Platform IN ('DC', 'SAT', 'GEN', 'GG', 'SCD') THEN 'Sega'
+		WHEN Platform IN ('WS') THEN 'Bandai'
+		WHEN Platform IN ('NG') THEN 'SNK'
+		WHEN Platform IN ('TG16', 'PCFX') THEN 'Nec'
+		WHEN Platform IN ('3DO') THEN 'Panasonic'
+	END Platform_Producer,
+	Platform,
+	Year_of_Release,
+	Genre,
+	Publisher,
+	NA_Sales,
+	EU_Sales,
+	JP_Sales,
+	Other_Sales,
+	Global_Sales
 FROM video_game_sales.dbo.games_info
 
 
 SELECT *
 FROM video_game_sales.dbo.copygames 
 ORDER BY Global_Sales DESC
-```
-<br />
+</pre>
+</details>
 
 ![image](https://user-images.githubusercontent.com/115379520/197377996-3c8c469c-c063-4bfc-b17c-72f65945feca.png)
 
-
-
 <br />
 
-The next step involved checking for NULL values. In the dataset, the Name column had two values with missing information which was updated using information for the [source website.](https://www.vgchartz.com/) Following that, the year_of_release column was cleaned. Any rows with values that were NULL or were greater than 2016 were deleted. Thus, resulting in 16445 rows in the cleaned dataset.
+The next step involved checking for NULL values. In the dataset, the Name column had two values with missing information which was updated using information from the [source website.](https://www.vgchartz.com/) Following that, the year_of_release column was cleaned. Any rows with values that were NULL or were greater than 2016 were deleted. Thus, resulting in 16445 rows in the cleaned dataset.
 
-```
+
+<details>
+<summary>SQL Code: Cleaned Table</summary>
+<pre>
 SELECT *
 FROM video_game_sales.dbo.copygames
 WHERE Name IS NULL 
@@ -101,11 +103,13 @@ SET
 	Genre = 'Fighting',
 	JP_Sales = 0.03,
 	Global_sales = Global_Sales + 0.03
-WHERE Name IS NULL AND Publisher = 'Acclaim Entertainment' AND Platform = 'GEN'
+WHERE 
+	Name IS NULL AND 
+	Publisher = 'Acclaim Entertainment' AND Platform = 'GEN'
 
 
 --SELECT *
-DELETE FROM  video_game_sales.dbo.copygames 
+DELETE FROM video_game_sales.dbo.copygames 
 WHERE Name ='Mortal Kombat II' AND Publisher = 'Acclaim Entertainment' AND Platform = 'GEN' AND NA_Sales = 0
 
 
@@ -124,18 +128,28 @@ WHERE Year_of_Release IS NULL OR Year_of_Release > 2016
 SELECT *
 FROM video_game_sales.dbo.copygames 
 -- COUNT 16445 
-```
+
+</pre>
+</details>
+
+
 
 <br />
 
-Next was briefly checking for duplicants and distinct values. There were no outliers or erroneous values, so nothing was deleted
+The final step was to check for duplicants and distinct values. There were no outliers or erroneous values, so nothing was deleted.
 
-```
+<details>
+<summary>SQL Code: Duplicate Check</summary>
+<pre>
 -- Duplicate check
 
 WITH cte_dupl AS 
 (
-	SELECT *, ROW_NUMBER() OVER(PARTITION BY Name, Platform, NA_Sales, JP_Sales, Global_Sales  ORDER BY Name) row_num
+	SELECT 
+		*, 
+		ROW_NUMBER() OVER(PARTITION BY Name, Platform, NA_Sales, JP_Sales, Global_Sales
+				  ORDER BY Name) 
+		row_num
 	FROM video_game_sales.dbo.copygames 
 )
 
@@ -149,19 +163,23 @@ WHERE row_num > 1
 SELECT DISTINCT  Year_of_Release
 FROM video_game_sales.dbo.copygames 
 ORDER BY Year_of_Release
-```
+</pre>
+</details>
 
 <br />
 
-# Data Analysis
+## Data Analysis
 
-Before diving into the NA sales data, I wanted a brief overview of the top level sales data. So I made a simple query and gathered a few descriptive statistics. Some summary statistics for global and NA sales are as listed in the image below. At a brief glance, I noticed that the sum of all NA sales (4.34 billion) was half of the global sales (8.84 billion). This shows how dominate the NA market is in terms of sales and will be investigated in a later section.
+Before diving into the NA sales data, I pulled up a brief overview of the top level sales data. So I made a simple query and gathered a few descriptive statistics. Some summary statistics for global and NA sales are as listed in the image below. At a brief glance, I noticed that the sum of all NA sales (4.34 billion) was half of the global sales (8.84 billion). This shows how dominate the NA market is in terms of sales and its influence on the global market.
 
-Inspecting the top level data, the top 10 global game sales are all Nintendo published and produced. Similarily, 9 out of 10 of the top games for NA are also from Nintendo. Given the precentage of sales in from the NA market, it makes sense why the top 10 games of both the global and NA were nearly identical. However, this immediately raises  several questions: is being a game from the Nintendo brand the top video game company, the most important factor in sales? Why does Nintendo have the most sales in NA? How does its competition compare? How did this change over time? 
+Inspecting the top level data, the top 10 global game sales are all Nintendo published and produced. Similarily, 9 out of 10 of the top games for NA are also from Nintendo. Given the precentage of sales from the NA market, it makes sense why the top 10 games of both the global and NA were nearly identical. However, this immediately raises several questions: is being a game from the Nintendo brand the top video game company, the most important factor in sales? Why does Nintendo have the most sales in NA? How does its competition compare? How did this change over time? 
 
 Keeping these questions in mind, I proceeded to explore the rest of the data to answer these questions.
 
-```
+<details>
+<summary>SQL Code: Best Selling Games</summary>
+<pre>
+
 SELECT *
 FROM video_game_sales.dbo.copygames 
 ORDER BY Global_Sales DESC
@@ -169,36 +187,35 @@ ORDER BY Global_Sales DESC
 SELECT *
 FROM video_game_sales.dbo.copygames 
 ORDER BY NA_Sales DESC 
-```
+
+</pre>
+</details>
 
 <br />
-**Top 10 Games Orderd by Global Sales**
+
+**Top 10 Games Ordered by Global Sales**
 
 ![image](https://user-images.githubusercontent.com/115379520/197653853-81f5694c-ddc0-449f-9146-9a3a7b37757a.png)
 
 
 
 <br />
-**Top 10 Games Orderd by NA Sales**
+
+**Top 10 Games Ordered by NA Sales**
 
 
 ![image](https://user-images.githubusercontent.com/115379520/197653913-d721ca6d-a05a-4633-850a-98d8d1de2320.png)
 
-
-
-
-
-
 <br />
 
-With how similar the top 10 categories in both the global and NA market, I checked how NA performed relative to other regions. The SQL query revealed that from 8.82 billion global sales, the North American market is responsible for 49.24% of it with 4.34 billion sales. Trailing behind, EU composes 27.21% of it with 2.4 billion sales. Folllowing that, JP is 14.64% of the total with 1.29 billion sales. Finally, Other region accounts for the final 8.87% with 782 million sales. Over time, distribution of the regionally sales has been fairly consistent with NA being the leading figure in the global market.
+With how similar the top 10 categories in both the global and NA market, I checked how NA performed relative to the rest of the regions. The SQL query revealed that from 8.82 billion global sales, the North American market is responsible for 49.24% of it with 4.34 billion sales. Trailing behind, EU composes 27.21% of it with 2.4 billion sales. Folllowing that, JP is 14.64% of the total with 1.29 billion sales. Finally, Other regions accounts for the final 8.87% with 782 million sales. Over time, distribution of the regionally sales has been fairly consistent with NA being the leading figure in the global market.
 
 
 
+<details>
+<summary>SQL Code: Global Sales by Region </summary>
+<pre>
 
-
-
-```
 SELECT 
 	SUM(Global_Sales) glb_sales, 
 	SUM(NA_Sales) na_sales,
@@ -225,10 +242,9 @@ SELECT
 FROM video_game_sales.dbo.copygames 
 GROUP BY Year_of_Release
 ORDER BY Year_of_Release
-```
-<br />
 
-
+</pre>
+</details>
 
 <br />
 

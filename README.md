@@ -170,6 +170,10 @@ ORDER BY Year_of_Release
 
 ## Data Analysis
 
+### Top Performing Games
+
+---
+
 Before diving into the NA sales data, I pulled up a brief overview of the top level sales data. So I made a simple query and gathered a few descriptive statistics. Some summary statistics for global and NA sales are as listed in the image below. At a brief glance, I noticed that the sum of all NA sales (4.34 billion) was half of the global sales (8.84 billion). This shows how dominate the NA market is in terms of sales and its influence on the global market.
 
 Inspecting the top level data, the top 10 global game sales are all Nintendo published and produced. Similarily, 9 out of 10 of the top games for NA are also from Nintendo. Given the precentage of sales from the NA market, it makes sense why the top 10 games of both the global and NA were nearly identical. However, this immediately raises several questions: is being a game from the Nintendo brand the top video game company, the most important factor in sales? Why does Nintendo have the most sales in NA? How does its competition compare? How did this change over time? 
@@ -207,6 +211,10 @@ ORDER BY NA_Sales DESC
 ![image](https://user-images.githubusercontent.com/115379520/197653913-d721ca6d-a05a-4633-850a-98d8d1de2320.png)
 
 <br />
+
+### Top Performing Regions
+
+---
 
 With how similar the top 10 categories in both the global and NA market, I checked how NA performed relative to the rest of the regions. The SQL query revealed that from 8.82 billion global sales, the North American market is responsible for 49.24% of it with 4.34 billion sales. Trailing behind, EU composes 27.21% of it with 2.4 billion sales. Folllowing that, JP is 14.64% of the total with 1.29 billion sales. Finally, Other regions accounts for the final 8.87% with 782 million sales. Over time, distribution of the regionally sales has been fairly consistent with NA being the leading figure in the global market.
 
@@ -255,45 +263,168 @@ ORDER BY Year_of_Release
 
 <br />
 
-To better understand how sales are distributed, I segemented the sales based on genre. From this data, the top 5 genres in terms of sales are Action, Sports, Shooters, Platformers and Misc. All of these categories exceed the average genre sales value of 361.9 million sales. Since these 5 categories compose a majority of the genre sales, I decided to focuse on these particular subtypes and filter out the other genres. 
+### Top Performing Genres
+
+---
+
+To better understand how sales are distributed, I segemented the sales based on genre. From this data, the top 5 genres in terms of sales are Action, Sports, Shooters, Platformers and Misc. All of these categories exceed the average genre sales value of 361.9 million sales. Since these 5 categories compose a majority of the genre sales, I decided to focus on these particular subtypes and filter out the other genres. 
 
 The overall count of titles revealed an interesting resullt for the top 5 genres in terms of NA sales:
 
-**Action** genre has the highest NA sales and count of games. Being at the top of sales makes sense as this genre is easier to play than other genres. Compared to genres like puzzle and strategy, there is no such bottleneck as the learning curve is easier. Furthermore, there are more options to choose from as this genre has the most amount of games by far. Thus, boosting the sales numbers. Other factors such as blockbuster game titles, console impact and social influence will be further explored in a later section.
+**Action** genre has the highest NA sales (863 million units) and count of games (3307). Being at the top of sales makes sense as this genre is easier to play than other genres. Compared to genres like puzzle and strategy, there is no such bottleneck as the learning curve is easier. Furthermore, there are more options to choose from as this genre has the most amount of games by far. Thus, boosting the sales numbers. Other factors such as blockbuster game titles, console impact and social influence will be further explored in a later section.
 
-**Sports** has the second highest NA sales and count of games. Some possible reasons why this genre is so popular includes social influences suchs Olympics, NBA or NFL historic seasons, etc. These factors will be further explored in a later section.
+**Sports** has the second highest NA sales (671 million units) and count of games (2306). Some possible reasons why this genre is so popular includes social influences suchs Olympics, NBA or NFL historic seasons, etc. These factors will be further explored in a later section.
 
-**Shooters** genre has the third most NA sales yet has less games than the Misc and Role-Playing genres. Going back to the ease of learning point and  barriers of entry, shooters tend to have simplier game mechanics. Point and click mechanics make the game easier to pick up while mitigating any gameplay confusion. However, a possible reason for the lower game title could also stem from the same design choice. Due to the simplicity of the gameplay, it is hard to innovate and justify an entirely new game. Thus, leading to lower game sales.
+**Shooters** genre has the third most NA sales (584 million units) yet has less games (1296) than the Misc and Role-Playing genres. Going back to the ease of learning point and  barriers of entry, shooters tend to have simplier game mechanics. Point and click mechanics make the game easier to pick up while mitigating any gameplay confusion. However, a possible reason for the lower game title could also stem from the same design choice. Due to the simplicity of the gameplay, it is hard to innovate and justify an entirely new game. Thus, leading to lower game sales.
 
-**Platformers** genre has the fourth most NA sales yet is lagging behind in number of game titles. A possible explanation for this might be that this genre was more prevalent in the past. This is may be due to how easy platformers were to implement relative to other genres. With advancements in technology, it became possible to implement more features for other genres. Thus, leading to decrease in sales over time. This theory will be further explored in a later section
+**Platformers** genre has the fourth most NA sales (444 million units) yet is lagging behind (878) in number of game titles. A possible explanation for this might be that this genre was more prevalent in the past. This is may be due to how easy platformers were to implement relative to other genres. With advancements in technology, it became possible to implement more features for other genres. Thus, leading to decrease in sales over time. This theory will be further explored in a later section
 
-**Misc** genre has the fifth most NA sales and the third most game titles. Since the Misc genre contains all games not inluced in the other genres, it is understandable why the volume of game titles is so high. Furthermore,  this genre probably contains game titles with highly popular gaming sub-cultures and niches. Thus, leading to the high sales.
+**Misc** genre has the fifth most NA sales (399 million units) and the third most game titles (1721). Since the Misc genre contains all games not inluced in the other genres, it is understandable why the volume of game titles is so high. Furthermore,  this genre probably contains game titles with highly popular gaming sub-cultures and niches. Thus, leading to the high sales.
 
 
-![image](https://user-images.githubusercontent.com/115379520/197688773-32a327bf-cb11-4b20-885e-a9e60b73f2d5.png)
+<details>
+<summary>SQL Code: NA Sales by Genre</summary>
+<pre>
+
+WITH cte_na_genre AS (
+SELECT Genre, COUNT(NA_sales) title_cnt, SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames 
+GROUP BY Genre
+)
+
+SELECT  *, AVG(na_sales) OVER() avg_sales_genre
+FROM cte_na_genre
+ORDER BY na_sales DESC
+
+</pre>
+</details>
+
+
+![image](https://user-images.githubusercontent.com/115379520/197940377-efadcbf3-0d3f-40c2-947e-4ed6869da652.png)
 
 <br />
 
 ![image](https://user-images.githubusercontent.com/115379520/197453795-195a744a-341b-4a9c-935a-f6daf25efae8.png)
 
 
-# yoy growth - cause games
-To make it easier to view changes overtime, I calculated YoY growth rate to quantify changes and observe any noticable trends. Following that, I filtered for years with YoY rates > 100 and segemented based on those years. Wrote queries pulling information on why those years were succesfful
+### Year over Year (YoY) Growth of Sales by Genre
+---
+
+To make it easier to view changes overtime, I calculated YoY growth rate to quantify changes and observe any noticable trends. Then I sorted by year and filtered for hight YoY rates to isolate for those high performing years.
+
+```
+Year over Year Growth = (Current Period Value ÷ Prior Period Value) – 1
+```
+
+At first glance, the data seemse scattered. As, iterate thorugh the game title releases to explain how this cam  to be
+
+
+<br/>
 
 
 
-# Yoy growth - platofrom and technoloy inducing growth and dips
+<details>
+<summary>SQL Code: Top 5 genre sales with YoY growth</summary>
+<pre>
 
 
-# how do publishers impact sales: make tree map of the type of games the it publiehse
+-- Top 5 NA Genre Sales Over Time with YoY Growth Rate
+
+DROP TABLE IF EXISTS #growth_YoY
+CREATE TABLE #growth_YoY
+	(
+	genre NVARCHAR(255),
+	release_year FLOAT,
+	na_sales FLOAT,
+	previous_year FLOAT, 
+	previous_sales FLOAT,
+	YoY_Growth_rate FLOAT
+	)
+
+
+WITH cte_growth_rate AS 
+	(
+	SELECT Genre, Year_of_Release, SUM(NA_Sales) na_sales
+	FROM video_game_sales.dbo.copygames 
+	WHERE Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+	GROUP BY Genre, Year_of_Release
+    )
+
+
+-- YoY = ( (current/previous) - 1 ) * 100 
+INSERT INTO #growth_YoY
+SELECT 
+	*,
+	LAG(Year_of_Release) OVER(PARTITION BY genre ORDER BY Year_of_Release) previous_year,
+	LAG(na_sales) OVER(PARTITION BY genre ORDER BY Year_of_Release) previous_sales,
+	((na_sales/NULLIF(LAG(na_sales) OVER(PARTITION BY genre ORDER BY Year_of_Release),0) ) - 1 ) * 100  growth_rate
+FROM cte_growth_rate
+ORDER BY Genre, Year_of_Release   
+
+
+-- NA Genre Sales Over Time, Filtered for YoY > 100%
+
+SELECT release_year, SUM(YoY_Growth_rate) growth_rate
+FROM #growth_YoY 
+WHERE YoY_Growth_rate > 100
+GROUP BY release_year
+ORDER BY  release_year
+
+</pre>
+</details>
+
+
+<details>
+<summary>SQL Code: Years with high YoY growth</summary>
+<pre>
+
+-- Segement via Genre and Release_years to view top performing games. Filter for years with highest YoY growth rates.
+
+WITH cte_yoy AS (
+		SELECT release_year
+		FROM #growth_YoY 
+		WHERE YoY_Growth_rate > 100
+		GROUP BY release_year
+)
+
+
+SELECT 
+	Year_of_Release, 
+	genre, 
+	Name, 
+	SUM(NA_Sales) OVER(PARTITION BY Year_of_Release ) yearly_sales,
+	SUM(NA_Sales) OVER(PARTITION BY Year_of_Release, genre ORDER BY Genre) yearly_genre_sales,
+	NA_Sales 
+FROM video_game_sales.dbo.copygames, cte_yoy
+WHERE Year_of_Release IN (cte_yoy.release_year) AND Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+ORDER BY Year_of_Release,  yearly_genre_sales DESC, NA_Sales DESC
+
+</pre>
+</details>
+
+
+
+<br>
+
+![image](https://user-images.githubusercontent.com/115379520/197947517-c9292020-2cd7-46e6-87f4-b4a57ead5150.png)
+
+
+
+### Yoy growth - platofrom and technoloy inducing growth and dips
+---
+
+
+### how do publishers impact sales: make tree map of the type of games the it publiehse
+---
+
 make note of popular game titles and franches
 
 
-# Conclusions / Recommednations
+## Conclusions / Recommednations
 
-# Limitations
+## Limitations
 
-# Footer/references
+## Footer/references
 
 
 

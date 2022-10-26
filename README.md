@@ -316,7 +316,7 @@ To make it easier to view changes overtime, I calculated YoY growth rate to quan
 Year over Year Growth = (Current Period Value ÷ Prior Period Value) – 1
 ```
 
-At first glance, the data seemse scattered. As, iterate thorugh the game title releases to explain how this cam  to be
+At first glance, the data seemse a bit overwhelming. However, as we iterate through the data and the years; we will see how specific game titles influenced the sales in North America.
 
 
 <br/>
@@ -351,7 +351,7 @@ WITH cte_growth_rate AS
     )
 
 
--- YoY = ( (current/previous) - 1 ) * 100 
+-- Year over Year Growth = (Current Period Value ÷ Prior Period Value) – 1
 INSERT INTO #growth_YoY
 SELECT 
 	*,
@@ -409,9 +409,73 @@ ORDER BY Year_of_Release,  yearly_genre_sales DESC, NA_Sales DESC
 ![image](https://user-images.githubusercontent.com/115379520/197947517-c9292020-2cd7-46e6-87f4-b4a57ead5150.png)
 
 
+<br>
+
+In 1981, total sales by filtered genre was 30.44 million.
+
+- **Action** genre did the best with games like Frogger and E.T. boosting their sales. From E.T. there is a direct influence for other media as this was close to year E.T. was released in theathers. With the popularity of the film, it drove people to buy the game. Therefore, boosting sales numbers.
+
+- **Shooter** genre also had decent sales, though no notable game IPs were released 
+
+- **Platform** genre performed fairly well with its release of the Donkey Kong game IP
+
+<br>
+
+![image](https://user-images.githubusercontent.com/115379520/197959005-6afa424e-e6ec-4ecb-958c-948b31b53eeb.png)
+
+<br>
+
+In 1984, total sales were 30.29 million. In 1985, total sales were 32.4 million.
+
+
+- **Shooter** genre shattered 1984 sales records with the release of Duck Hunt which made 25.93 million sales. This was around 85% of the year's total sales
+
+
+- **Platform** genre soon followed up and the shattered sales records once more. The gaming world was forever changed with the introduction of the Super Mario Bros in 1985. This game made with the release of Duck Hunt which made 29.08 million sales. This was around 90% of the year's total sales
+
+
+<br>
+
+![image](https://user-images.githubusercontent.com/115379520/197963637-8a399042-05ff-4496-81ff-1d34e95fbd28.png)
+
+<br>
+
+In 1988,1989 and 1994 total sales by genre were  19.33 million, 18.61 million and 23.15 million respectively
+
+- Platform genre released more games from the Donkey Kong and Mario franchise. This helped establish dominance in the platformer genre with a collective 10.39 million sales
+
+
+- **Platform** genre is the clear cut top performer in this era. This can be attributed to the success of the Mario franchise with their games being a sensational smash hit.
+
+<br>
+
+![image](https://user-images.githubusercontent.com/115379520/197968177-e5ee517a-5480-4006-9ce5-330f04f95cd0.png)
+
+
+<br>
+
+
+
+<br>
+
+
+
+<br>
+
+
+<br>
+<br>
+
+
+<br>
+
+<br>
+
 
 ### Yoy growth - platofrom and technoloy inducing growth and dips
 ---
+
+
 
 
 ### how do publishers impact sales: make tree map of the type of games the it publiehse

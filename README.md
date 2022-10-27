@@ -487,6 +487,66 @@ In 2008/2009, video game sales hit its peak with 241.46 million units sold. Unfo
 
 <br>
 
+### Top Performing Consoles by Platform Producers
+---
+
+Upon viewing top level data of Platform Producers, there are three clear cut performers: Nintendo, Sony, and Microsoft with 1.11 billion
+1.050 billion and  680.44 million sales respectively. A possible reason why Nintendo and Sony have the highest cumulative sales could be a result from their long history in the video game industry. Obviously the longer a company is in an industry, the more sales it is expected to have.
+
+When segmenting the data and viewing the top perfoming consoles overall; the top three werethe  Microsoft XBOX 360, Nintendo Wii and Sony Playstation were 470.1, 392.5 and 390.2 million respectively. Now the sales could be a result of advancement in technoloy, peripherals and console exclusive games. For instance, the Wii was the first console to integrate motion and physically activity into gameplay. On the other hand the XBOX360 optimized its controller making it a better and more optimized gaming experince for the consumer. Lastly for console exclusive games, franchise cornerstones like Halo and Mario heavily contribute to the decision of which console to purchase. This will be explored as I iterate through the data over time.
+
+
+Note, this data was gathered by quering and filtering for the top 5 performing genres. 
+
+<details>
+<summary>SQL Code: NA Sales by Platform Producer</summary>
+<pre>
+
+-- Platform_Producer Analysis to see how sales are broken down by technological advances
+
+SELECT Platform_Producer, SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames
+WHERE Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+GROUP BY Platform_Producer
+ORDER BY na_sales DESC
+-- since SNK and NEC had zero or negligibale sales  for NA market we will exclude these companies from our analysis,
+-- panasonic an bandai did not release their console to NA
+
+
+-- Platform_Producer sales over time
+
+SELECT  Year_of_Release, Platform_Producer, SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames
+WHERE Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+GROUP BY Platform_Producer, Year_of_Release
+ORDER BY Year_of_Release, na_sales DESC
+
+
+-- Platform_Producer, Ordered by console sales
+
+SELECT  Platform_producer, Platform, SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames
+WHERE Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+GROUP BY Platform_producer, Platform
+ORDER BY na_sales DESC
+
+
+-- Platform_Producer, Ordered by console sales OVER TIME
+
+SELECT  Platform_producer, Platform, SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames
+WHERE Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+GROUP BY Platform_producer, Platform
+ORDER BY na_sales DESC
+
+</pre>
+</details>
+
+![image](https://user-images.githubusercontent.com/115379520/198225747-598fa915-b119-4eb7-b56d-c5dbb3924269.png)
+
+
+<br>
+
 ### Yearly Breakdown of Sales by Platform Producers
 ---
 
@@ -649,6 +709,16 @@ make note of popular game titles and franches
 
 
 ## Conclusions / Recommednations
+
+
+many things contribuet to sells like great games exlusives to build loyal fan base,
+
+new technology alllows for better gameplay and grahpics so pump money into R&D
+
+
+reallife events and famous people can influence sales and expand the audience of games
+
+
 
 it would be great if i had access to revnue/costs so i can see the profitabiliyu of the games. See how profitiable games are after intial sells
 ie.) are they any upkeep costs associated with the game like server maintence and bug patches

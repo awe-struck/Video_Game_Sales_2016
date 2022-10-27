@@ -307,10 +307,10 @@ ORDER BY na_sales DESC
 ![image](https://user-images.githubusercontent.com/115379520/197453795-195a744a-341b-4a9c-935a-f6daf25efae8.png)
 
 
-### Yearly Breakdown by Game Title Releases
+### Yearly Breakdown of Sales by Game Title Releases
 ---
 
-To make it easier to view changes overtime, I calculated YoY growth rate to quantify changes and observe any noticable trends. Then I sorted by year and filtered for hight YoY rates to isolate for those high performing years.
+To make it easier to view changes overtime, I calculated YoY growth rate to quantify changes and observe any noticable trends. Then I sorted by year and filtered for hight YoY rates to isolate for those high performing years. In this section, I will breakdown the data Year by Year growth and observe the best selling game releases
 
 ```
 Year over Year Growth = (Current Period Value ÷ Prior Period Value) – 1
@@ -419,7 +419,6 @@ In 1981, total sales by filtered genre was 30.44 million units.
 
 - **Platform** genre performed fairly well with its release of the Donkey Kong game IP
 
-<br>
 
 ![image](https://user-images.githubusercontent.com/115379520/197959005-6afa424e-e6ec-4ecb-958c-948b31b53eeb.png)
 
@@ -432,7 +431,7 @@ In 1984 and 1985, total sales were 30.29 and 32.4 million  units respectively.
 - **Platform** genre soon followed up and the shattered sales records once more. The gaming world was forever changed with the introduction of the Super Mario Bros in 1985. This game made with the release of Duck Hunt which made 29.08 million sales. This was around 90% of the year's total sales
 
 
-<br>
+
 
 ![image](https://user-images.githubusercontent.com/115379520/197963637-8a399042-05ff-4496-81ff-1d34e95fbd28.png)
 
@@ -442,7 +441,7 @@ In 1988,1989 and 1994 total sales by genre were  19.33 million, 18.61 million an
 
 - **Platform** genre released more games from the Donkey Kong and Mario franchise. This helped establish dominance in the platformer genre with a collective 10.39 million sales. This genre is the clear cut top performer in this era. This can be attributed to the success of the Mario franchise with their games being a sensational smash hit.
 
-<br>
+
 
 ![image](https://user-images.githubusercontent.com/115379520/198145406-88921f24-b05f-42fc-9853-212eee486207.png)
 
@@ -450,8 +449,6 @@ In 1988,1989 and 1994 total sales by genre were  19.33 million, 18.61 million an
 <br>
 
 In 1996-1998, total sales were 39.6, 59.04 and 73.04 million units. All the genres started to pick up traction as multiple well known and popular game IPs had been created or released. Overall, a higher quality and greater volume of game titles were being released during these years.
-
-
 
 - **Platform** genre released multiple games that are considered famous in modern times. These include Crash Bandicoot, Donkey Kong, Megaman, Kirby and etc.
 
@@ -464,28 +461,180 @@ In 1996-1998, total sales were 39.6, 59.04 and 73.04 million units. All the genr
 - **Misc** genre experienced huge growth in sales yet was still at the bottom of sales for genre. Digging into the data, there were was a higher volume of games causing the increase in sales.
 
 
+![image](https://user-images.githubusercontent.com/115379520/198161634-9c2aa199-78e2-4fcd-9fa6-9b5151ea8f22.png)
+
+<br>
+
+In 2000 - 2001, the  video game sales explodesd with 105.29 and 146.89 million units sold respectively. All genres have increased with notable IPs such as Halo, GTA and Metal Gear being released.
+
+![image](https://user-images.githubusercontent.com/115379520/198162869-995bb41a-f9d7-4225-b495-d9a704da9aa1.png)
+
+<br>
+
+In 2006, total sales were 183.08 million units. 
+
+ **Sports** genre released Wii Sports which dominated the gaming market at  41.36 million units sold. This is one of many Wii games that performed well. An analysis of platform and technology evolution will be covered in a later section.
 
 
-
+![image](https://user-images.githubusercontent.com/115379520/198163823-d8b4822e-305e-4de0-a1d5-214209559eae.png)
 
 <br>
 
 
+In 2008/2009, video game sales hit its peak with 241.46 million units sold. Unfortunately, the US housing crisis tanked the ecomony causing all sales to drop dramitically. The result of financial hardship caused consumers to prioritze their spending on economic recovery and survival. Thus, leading to less sales in entertainemnt products such as video games.
+
+![image](https://user-images.githubusercontent.com/115379520/198164149-4abe08fd-e260-4de5-bd20-929f1c7010da.png)
 
 <br>
 
-
-<br>
-<br>
-
-
-<br>
-
-<br>
-
-
-### Yoy growth - platofrom and technoloy inducing growth and dips
+### Yearly Breakdown of Sales by Platform Producers
 ---
+
+<br>
+
+In this section, I will organize the data based on Platform Producer and see how console releases influenced NA sales over time. This will guage how the advancement of technology influenced sells.
+
+Below is a brief snapshot of how games sales over time. From the diagram, Sony, Mircosoft and Nintendo are the clear leaders in Console producers. As I drive deeper into this data, I will show how these companies became the top console producers in terms of sales.
+
+<details>
+<summary>SQL Code: Platform Producer Growth Rate</summary>
+<pre>
+
+DROP TABLE IF EXISTS #growth_YoY_plat
+CREATE TABLE #growth_YoY_plat
+	(
+	release_year FLOAT,
+	Platform_Producer NVARCHAR(255),
+	na_sales FLOAT,
+	previous_year FLOAT, 
+	previous_sales FLOAT,
+	YoY_Growth_rate FLOAT
+	)
+
+WITH cte_growth_rate AS 
+	(
+	SELECT Year_of_Release, Platform_Producer,  SUM(NA_Sales) na_sales
+	FROM video_game_sales.dbo.copygames 
+	WHERE genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+	GROUP BY Platform_Producer, Year_of_Release
+    )
+
+
+INSERT INTO #growth_YoY_plat
+SELECT 
+	*,
+	LAG(Year_of_Release) OVER(PARTITION BY Platform_Producer ORDER BY Year_of_Release) previous_year,
+	LAG(na_sales) OVER(PARTITION BY Platform_Producer ORDER BY Year_of_Release) previous_sales,
+	((na_sales/NULLIF(LAG(na_sales) OVER(PARTITION BY Platform_Producer ORDER BY Year_of_Release),0) ) - 1 ) * 100  growth_rate
+FROM cte_growth_rate
+ORDER BY Platform_Producer, Year_of_Release   
+
+
+
+SELECT release_year, Platform_Producer, SUM(YoY_Growth_rate) growth_rate
+FROM #growth_YoY_plat
+WHERE YoY_Growth_rate > 100
+GROUP BY release_year, Platform_Producer
+ORDER BY release_year
+
+
+</pre>
+</details>
+
+
+<details>
+<summary>SQL Code: Console Sales Over Time</summary>
+<pre>
+
+WITH cte_yoy AS (
+		SELECT release_year, SUM(YoY_Growth_rate) growth_rate
+		FROM #growth_YoY_plat  
+		WHERE YoY_Growth_rate > 100
+		GROUP BY release_year
+),
+
+cte_console AS (
+	SELECT
+	Year_of_Release, 
+	Platform_Producer,
+	Platform, 
+	SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames
+WHERE  Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+GROUP BY
+	Year_of_Release, 
+	Platform_Producer,
+	Platform
+)
+
+
+SELECT 
+	Year_of_Release, 
+	Platform_Producer,
+	Platform, 
+	SUM(na_Sales) OVER(PARTITION BY Year_of_Release ) yearly_sales,
+	SUM(na_Sales) OVER(PARTITION BY Year_of_Release, Platform_Producer ORDER BY Platform_Producer) yearly_platform_producer_sales,
+	SUM(na_Sales) OVER(PARTITION BY Year_of_Release, Platform_Producer, Platform ORDER BY Platform_Producer) Console_sales
+FROM cte_console, cte_yoy
+WHERE Year_of_Release IN (cte_yoy.release_year) 
+ORDER BY Year_of_Release, yearly_platform_producer_sales DESC, Console_sales DESC
+
+</pre>
+</details>
+
+<br>
+
+![image](https://user-images.githubusercontent.com/115379520/198195600-8f81842e-e064-4c7e-8aec-bdf6b7b2e6a6.png)
+
+<br>
+
+Year_of_Release	Platform_Producer	Platform	yearly_sales	yearly_platform_producer_sales	Console_sales
+1981	Atari	2600	30.44	30.44	30.44
+1984	Nintendo	NES	30.29	30.29	30.29
+1992	Nintendo	GB	14.51	8.27	5.79
+
+
+1994	Nintendo	SNES	23.15	13.41	7.38
+1994	Nintendo	GB	23.15	13.41	6.03
+
+
+
+1998	Sony	PS	1241.68	864.96	864.96
+1999	Nintendo	N64	1066.24	462.23	339.66
+
+2001	Sony	PS2	1789.93	1033.94	836.57
+2001	Nintendo	GBA	1789.93	555.22	384.03
+2001	Nintendo	GC	1789.93	555.22	111.35
+2001	Microsoft	XB	1789.93	200.6	200.6
+
+2002	Sony	PS2	2497.13	1163.14	1118.77
+2004	Sony	PSP	2573.29	1175.04	13.77
+
+
+2005	Nintendo	DS	2647.75000000001	787.61	251.09
+2005	Microsoft	X360	2647.75000000001	551.48	85.17
+2006	Nintendo	Wii	3112.35999999999	1686.57	1102.45
+2006	Sony	PS3	3112.35999999999	918	79.22
+
+
+2013	Microsoft	XOne	2161.89	1018.13	165.58
+2013	Sony	PS4	2161.89	756.84	150.28
+
+In 2006, wii sports dominated the gaming world
+
+
+2003-2005
+The DS came out pushing out new knds of innovation and types of games
+gta gives sony new life
+
+2006-2008
+Wii, DS , xbo360 and ps3 are the kings of this era with wii initailly on top before being over taken by xbox 360
+
+THEN everything plummets due to the 2008/2009 finicial market crisis
+
+
+
+
 
 
 

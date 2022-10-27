@@ -588,6 +588,40 @@ ORDER BY Year_of_Release, yearly_platform_producer_sales DESC, Console_sales DES
 
 <br>
 
+In 1981, Atari sales peaked at 30.44 million from the console Atari 2600. The Atari 2600 was realeased in 1977 which popularized microprocessor-based hardware and games stored on swappable ROM cartridge. This advancement in technology allowed for more advanced gameplay and graphics compared to older generation consoles
+
+![image](https://user-images.githubusercontent.com/115379520/198205333-e0c84d12-af30-4496-b3de-dbc978bd5121.png)
+
+<br>
+
+
+In 1984, Nintendo reached 30.3 million  sales. This is due to the release of the Nintendo Entertainment System (NES)/ Famicom. This console is an 8-bit system which is a substantial upgrade over its competitor, the Atari 2600. Thus, allowing Nintendo to take the 'crown' as  the king of platform producers 
+
+In 1990, Nintendo  made 16.8 million sales and released both the SNES concole and the handheld Game Boy. These new innovations in a portable system and new 16-bit console helped maintain its complete dominance in the gaming space until 1992.
+
+In 1992, the Sega Genesis had 6.2 million games sold compared to 8.3 million games sold for Nintendo. This was developed in 1988 as a competitor to Nintendo gaming systems. Thus, causing the dip in sales.
+
+![image](https://user-images.githubusercontent.com/115379520/198210592-c38236eb-b937-4854-92f2-d0a809c10881.png)
+
+<br>
+
+In 1998, the total game sales in NA were 71.8. With the release of the Playstation Station in 1994, Sony entered into the video game market eventually overtaking Nintendo in game sales. This lead to a fierce competition between the two comnpanies with each trying to develop the better system to control market share. Another point to note is that many games on Sony and Nintendo consoles are platform exclusive. Thus, forcing the consumer to pick between consoles.
+
+In 2002, there was a total of 146.8 million sales. Though Sony remained 'king', a new contender came in the form of Mircosoft's XBOX. This system experienced rapid growth and popularity in part due to the advanced console and the console exclusive release of Halo
+
+
+![image](https://user-images.githubusercontent.com/115379520/198214712-83ea7823-1088-4072-a452-854cc4410c01.png)
+
+
+<br>
+
+
+<br>
+
+
+<br>
+
+
 Year_of_Release	Platform_Producer	Platform	yearly_sales	yearly_platform_producer_sales	Console_sales
 1981	Atari	2600	30.44	30.44	30.44
 1984	Nintendo	NES	30.29	30.29	30.29

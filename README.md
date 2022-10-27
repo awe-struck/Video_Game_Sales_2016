@@ -307,7 +307,7 @@ ORDER BY na_sales DESC
 ![image](https://user-images.githubusercontent.com/115379520/197453795-195a744a-341b-4a9c-935a-f6daf25efae8.png)
 
 
-### Year over Year (YoY) Growth of Sales by Genre
+### Yearly Breakdown by Game Title Releases
 ---
 
 To make it easier to view changes overtime, I calculated YoY growth rate to quantify changes and observe any noticable trends. Then I sorted by year and filtered for hight YoY rates to isolate for those high performing years.
@@ -411,7 +411,7 @@ ORDER BY Year_of_Release,  yearly_genre_sales DESC, NA_Sales DESC
 
 <br>
 
-In 1981, total sales by filtered genre was 30.44 million.
+In 1981, total sales by filtered genre was 30.44 million units.
 
 - **Action** genre did the best with games like Frogger and E.T. boosting their sales. From E.T. there is a direct influence for other media as this was close to year E.T. was released in theathers. With the popularity of the film, it drove people to buy the game. Therefore, boosting sales numbers.
 
@@ -425,11 +425,9 @@ In 1981, total sales by filtered genre was 30.44 million.
 
 <br>
 
-In 1984, total sales were 30.29 million. In 1985, total sales were 32.4 million.
-
+In 1984 and 1985, total sales were 30.29 and 32.4 million  units respectively.
 
 - **Shooter** genre shattered 1984 sales records with the release of Duck Hunt which made 25.93 million sales. This was around 85% of the year's total sales
-
 
 - **Platform** genre soon followed up and the shattered sales records once more. The gaming world was forever changed with the introduction of the Super Mario Bros in 1985. This game made with the release of Duck Hunt which made 29.08 million sales. This was around 90% of the year's total sales
 
@@ -440,19 +438,33 @@ In 1984, total sales were 30.29 million. In 1985, total sales were 32.4 million.
 
 <br>
 
-In 1988,1989 and 1994 total sales by genre were  19.33 million, 18.61 million and 23.15 million respectively
+In 1988,1989 and 1994 total sales by genre were  19.33 million, 18.61 million and 23.15 million units respectively
 
-- Platform genre released more games from the Donkey Kong and Mario franchise. This helped establish dominance in the platformer genre with a collective 10.39 million sales
-
-
-- **Platform** genre is the clear cut top performer in this era. This can be attributed to the success of the Mario franchise with their games being a sensational smash hit.
+- **Platform** genre released more games from the Donkey Kong and Mario franchise. This helped establish dominance in the platformer genre with a collective 10.39 million sales. This genre is the clear cut top performer in this era. This can be attributed to the success of the Mario franchise with their games being a sensational smash hit.
 
 <br>
 
-![image](https://user-images.githubusercontent.com/115379520/197968177-e5ee517a-5480-4006-9ce5-330f04f95cd0.png)
+![image](https://user-images.githubusercontent.com/115379520/198145406-88921f24-b05f-42fc-9853-212eee486207.png)
 
 
 <br>
+
+In 1996-1998, total sales were 39.6, 59.04 and 73.04 million units. All the genres started to pick up traction as multiple well known and popular game IPs had been created or released. Overall, a higher quality and greater volume of game titles were being released during these years.
+
+
+
+- **Platform** genre released multiple games that are considered famous in modern times. These include Crash Bandicoot, Donkey Kong, Megaman, Kirby and etc.
+
+- **Sports** genre had a massive spike in sales with a higher quantity and volume of games. This lead to overtaking **platform** as the top performing in sales. In this period, games based on sports leagues started to come out. Some of these games include NBA Live, NHL Live and Madden NFL. These games drew in a new audience of sports fans who now had a gateway into the video game medium. Furhermore, the excitemnt and narritaves of real life sports also helped in driving sales. For instance, during this period Michael Jordan had come out of retirement and performed a three-peat. The extra attention from this historic sports moment spilled over to other mediums. With the end result of increasing sales of associated products. The key take away here is that there is value in associating games to other mediums and real life events. All of which has the benefit of promoting the products to a loyal fanbase and increasing general visablity. Additionally, this can serve as a method to ease someone in who is not familiar with the medium. 
+
+- **Action** genre also had a massive sales increased that overtook the **platform** genre. Notable IPs include Tomb Raider, Resident Evil and Starwars
+
+- **Shooter** genre had the smash hits Golden Eye: 007, Half-Life and Starfox come out in 1997. This lead to the genre matching **action** and **sports** in sales.
+
+- **Misc** genre experienced huge growth in sales yet was still at the bottom of sales for genre. Digging into the data, there were was a higher volume of games causing the increase in sales.
+
+
+
 
 
 
@@ -485,6 +497,28 @@ make note of popular game titles and franches
 
 
 ## Conclusions / Recommednations
+
+it would be great if i had access to revnue/costs so i can see the profitabiliyu of the games. See how profitiable games are after intial sells
+ie.) are they any upkeep costs associated with the game like server maintence and bug patches
+
+likewise it would be interesting to see how profitable 'free-to play' games are despite not having any sales
+- see how their games are monetized: cosmetics, gacha, lootboxes, subscriptions, etc
+
+
+For future research, it would be interesting to consider how covid lockdown has boosted certain games like among us
+as it encourages collaboration in a time where people cannot physically gather.
+
+it would be interesting to see how pc game sales develop as platforms such as steam providing discounted games and esports being more prevalent now adays
+
+also interesting in how handheld games change over time
+
+
+paid sponsorship and infflunecrs
+and more appeling to a general audience
+can help expand reach and make game more appealing to srrat
+
+
+## Future directions
 
 ## Limitations
 

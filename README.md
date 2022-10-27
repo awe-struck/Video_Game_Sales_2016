@@ -616,55 +616,24 @@ In 2002, there was a total of 146.8 million sales. Though Sony remained 'king', 
 <br>
 
 
-<br>
+In 2007, the total sales were 211.2 million. Nintendo reclaimed its crown as 'king' and dominated the market with a cumilative NA sales of 107 million.
+This was followed by Sony who released the PS3 in 2006 with NA sales of 58.8 million. Then finally Microsoft who released the XBOX360 in 2005 wih NA sales of 45.4 million.
+
+![image](https://user-images.githubusercontent.com/115379520/198217275-ae52da9a-043a-4aae-9134-49b84e31d0d5.png)
 
 
 <br>
 
+In 2008/2009, the housing crisis occured which tanked the economy causing NA sales to plummet overall. The exception to this was Mircosoft's XBOX360 which  overtook Nintendo in 2010 as the new 'king' of the consoles.
 
-Year_of_Release	Platform_Producer	Platform	yearly_sales	yearly_platform_producer_sales	Console_sales
-1981	Atari	2600	30.44	30.44	30.44
-1984	Nintendo	NES	30.29	30.29	30.29
-1992	Nintendo	GB	14.51	8.27	5.79
-
-
-1994	Nintendo	SNES	23.15	13.41	7.38
-1994	Nintendo	GB	23.15	13.41	6.03
+In 2013, the total sales in NA was 125.8 million. In the very same year, both Microsoft and Sony released the XBOX ONE and PS3 respectively. While Nintendo released the Wii U in 2012, which was considered to be a commercial flop.
 
 
 
-1998	Sony	PS	1241.68	864.96	864.96
-1999	Nintendo	N64	1066.24	462.23	339.66
-
-2001	Sony	PS2	1789.93	1033.94	836.57
-2001	Nintendo	GBA	1789.93	555.22	384.03
-2001	Nintendo	GC	1789.93	555.22	111.35
-2001	Microsoft	XB	1789.93	200.6	200.6
-
-2002	Sony	PS2	2497.13	1163.14	1118.77
-2004	Sony	PSP	2573.29	1175.04	13.77
+![image](https://user-images.githubusercontent.com/115379520/198219507-f0227c3f-1d06-44f3-84a4-f786d9efbc60.png)
 
 
-2005	Nintendo	DS	2647.75000000001	787.61	251.09
-2005	Microsoft	X360	2647.75000000001	551.48	85.17
-2006	Nintendo	Wii	3112.35999999999	1686.57	1102.45
-2006	Sony	PS3	3112.35999999999	918	79.22
-
-
-2013	Microsoft	XOne	2161.89	1018.13	165.58
-2013	Sony	PS4	2161.89	756.84	150.28
-
-In 2006, wii sports dominated the gaming world
-
-
-2003-2005
-The DS came out pushing out new knds of innovation and types of games
-gta gives sony new life
-
-2006-2008
-Wii, DS , xbo360 and ps3 are the kings of this era with wii initailly on top before being over taken by xbox 360
-
-THEN everything plummets due to the 2008/2009 finicial market crisis
+<br>
 
 
 
@@ -701,7 +670,7 @@ and more appeling to a general audience
 can help expand reach and make game more appealing to srrat
 
 
-## Future directions
+## Future Considertaions/Other Areas to Explore
 
 ## Limitations
 

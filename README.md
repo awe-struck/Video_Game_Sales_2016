@@ -776,7 +776,15 @@ Overall, there are many factors that are involved in the success and growth of v
 
 Using these questions as a guideline, I will explain the factors involved with growth in game sales in NA. The top performing plaform producers were Nintendo, Sony and Microsoft at 1.11 billion, 1.050 billion and 680.44 million sales repectively. This order is due to the difference in initial presense in the video game industry. Being the earliest, Nintendo debuted its first console as the NES in 1983. While Sony debuted the PlayStation in 1994 and Microsoft debuted the XBOX in 2000. Given that Nintendo had more time in the video game market, it stands to reason why it has the highest cumulative video game sales compared the to other platforms producers. 
 
-From here, there Now, why and how did the other companies catch up
+While Nintendo has the most sales out of all the console producers, it would be remiss not to mention the growth of its competitors. Specifically, how these companies grew their sales to the point where it contends wilth Nintendo. These two factors are the release of notable game IPs and the advancement of technology for consoles. 
+
+Regarding the release of game titles, the overall volume and quality of video games increased dramatically over the years. This of course, boosted sales in the NA region. From 1980 - 2016, many well known game franchises were created and released. These franchises built up a reputation and a loyal fanbase leading to repeated sales over time.  Nintendo, EA and Activison became the top 3 game publishers in NA due having released the most games from well known IPs. From viewing the games sales based on genre,  it revealed how the preference for game type changed over time. Platform games were intially the best selling genre, but started to lose its status as top performing as time progressed. The sports genre in particular used real life events to help promote and market their product. By making games based on actual people or events, it drew in a new audience of consumers and provided an easy gateway into the gaming space.
+
+This is due to other genres releasing a greater varity of game titles which have become staple franchies. Furthermore, an advancement ing
+
+The top 3 publishers all had the . Notable game franchise build on a reputation and customer loyalty and fanbase
+
+Many games were console specific. This drove consumers to pick consoles based on game types provided budge was an issue. Another factor that played into this was advancmtent of playfrom
 
 
 
@@ -811,6 +819,8 @@ can help expand reach and make game more appealing to srrat
 
 ## Future Considertaions 
 
+Other factors to check  is in a digital world, how good is the connectivity and online community of each game
+
 Other Areas to Explore
 
 For future research, it would be interesting to consider how covid lockdown has boosted certain games like among us
@@ -832,7 +842,6 @@ likewise it would be interesting to see how profitable 'free-to play' games are 
 
 ## Limitations
 
-## Footer/references
 
 
 

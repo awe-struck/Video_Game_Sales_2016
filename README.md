@@ -4,9 +4,8 @@
 
 Video games have long been a source of entertainment with many factors leading to its success in sales and market growth. This project will use exploratory data analysis to examine those factors and uncover any insights found within the dataset. Specifically, the focus of the analysis will be on the North American market.
 
-The goal of this analysis is to gain insight into the factors that incluence video game sales in the North American market and to use that information to give data based business recommendations.
+The goal of this analysis is to gain insight into the factors that influence video game sales in the North American market and to use that information to give data based business recommendations.
 
-(to answer what has caused (genre , technology getting better, media and other campaigns like movies)the growth of sales and how can game companies captilize on it)
 
 <br />
 
@@ -170,13 +169,24 @@ ORDER BY Year_of_Release
 
 ## Data Analysis
 
+The analysis of the data involved writing SQL queries to breakdown and segement based on categories. Visualizations were from screenshots of SQL query outputs and Tableau generated graphs of that output.
+
+
+<br />
+
 ### Top Performing Games
 
 ---
 
 Before diving into the NA sales data, I pulled up a brief overview of the top level sales data. So I made a simple query and gathered a few descriptive statistics. Some summary statistics for global and NA sales are as listed in the image below. At a brief glance, I noticed that the sum of all NA sales (4.34 billion) was half of the global sales (8.84 billion). This shows how dominate the NA market is in terms of sales and its influence on the global market.
 
-Inspecting the top level data, the top 10 global game sales are all Nintendo published and produced. Similarily, 9 out of 10 of the top games for NA are also from Nintendo. Given the precentage of sales from the NA market, it makes sense why the top 10 games of both the global and NA were nearly identical. However, this immediately raises several questions: is being a game from the Nintendo brand the top video game company, the most important factor in sales? Why does Nintendo have the most sales in NA? How does its competition compare? How did this change over time? 
+Inspecting the top level data, the top 10 global game sales are all Nintendo published and produced. Similarily, 9 out of 10 of the top games for NA are also from Nintendo. Given the precentage of sales from the NA market, it makes sense why the top 10 games of both the global and NA were nearly identical. However, this immediately raises several questions: 
+
+- Why does Nintendo have the best individual performing game sales in NA?
+- Is it due to technological advances?
+- Is it due to console specific game franchises?
+- How do the sales change over time?
+- How does its competition compare? 
 
 Keeping these questions in mind, I proceeded to explore the rest of the data to answer these questions.
 
@@ -542,7 +552,7 @@ ORDER BY na_sales DESC
 </pre>
 </details>
 
-![image](https://user-images.githubusercontent.com/115379520/198225747-598fa915-b119-4eb7-b56d-c5dbb3924269.png)
+![image](https://user-images.githubusercontent.com/115379520/198402506-cd1becd4-3bd6-4165-8d3f-5639972ea573.png)
 
 
 <br>
@@ -696,20 +706,70 @@ In 2013, the total sales in NA was 125.8 million. In the very same year, both Mi
 <br>
 
 
-
-
-
-
-
-
-### how do publishers impact sales: make tree map of the type of games the it publiehse
+### Top 3 Publishers by Game Titles
 ---
 
-make note of popular game titles and franches
+From exploring the data, there are three publishers that have the highest game sales by far. These are Nintendo, Electronic Arts (EA) and Activision with
+492.8, 418.05, and 373.5 million sales units respectively.
 
+When inspecting the data, these publishers all had one thing in common; they all published notable game franchises. These game franchises include Mario for Nintendo, Madden NFL for EA and Call of Duty for Blizzard. With the brand power each game has and the loyal fanbase, it was easier to market and generate sales per release of an associated title.
+
+
+<details>
+<summary>SQL Code: Top 3 Publishers in NA Sales</summary>
+<pre>
+
+-- Publishers Analysis: General Overview of Top 10 Publishers
+
+SELECT Publisher, SUM(NA_Sales) na_sales
+FROM video_game_sales.dbo.copygames 
+WHERE  Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc')
+GROUP BY Publisher 
+ORDER BY  na_sales DESC
+OFFSET 0 ROWS
+FETCH NEXT 10 ROWS ONLY
+
+
+-- Publishers Analysis by game title
+
+WITH cte_pub AS 
+(
+	SELECT Publisher, Name , SUM(NA_Sales) na_sales
+	FROM video_game_sales.dbo.copygames 
+	WHERE  Genre IN ('Action', 'Sports', 'Shooter','Platform', 'Misc') AND Publisher IN ('Nintendo', 'Electronic Arts','Activision')
+	GROUP BY Publisher, Name    
+)
+SELECT * , SUM(na_sales) OVER(PARTITION BY Publisher) pub_sale
+FROM cte_pub
+ORDER BY pub_sale DESC, na_sales desc
+
+
+</pre>
+</details>
+
+
+![image](https://user-images.githubusercontent.com/115379520/198417958-42cd6756-d4b5-444c-823b-79d69e3ea92a.png)
+
+
+![image](https://user-images.githubusercontent.com/115379520/198417878-b8709b16-93ac-4bcd-a021-5bbfc15a6459.png)
+
+<br>
 
 ## Conclusions / Recommednations
 
+
+
+
+
+- Why does Nintendo have the best individual performing game sales in NA?
+- Is it due to technological advances?
+- Is it due to console specific game franchises?
+- How do the sales change over time?
+- How does its competition compare? 
+
+
+
+(to answer what has caused (genre , technology getting better, media and other campaigns like movies)the growth of sales and how can game companies captilize on it)
 
 many things contribuet to sells like great games exlusives to build loyal fan base,
 

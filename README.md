@@ -22,7 +22,7 @@ Below is a brief summary of the columns from the cleaned dataset used in the ana
 
 ## Data Extraction and Cleaning
 
-- Here is a direct link to the SQL cleaning file:
+- Link to SQL cleaning file:
 
 Pre-cleaned, the CSV file contained 16719 rows. The file was then converted into a .xlss format and uploaded to Microsoft SSMS for analysis. I proceeded to create a copy table to store this information and filter for the columns relevant to the analysis. These dropped columns contained NULL values and was data that was not fully scrapped from metacritic. Thus, the columns critic score,critic count, user score, user count, developer and rating were dropped. 
 
@@ -169,6 +169,8 @@ ORDER BY Year_of_Release
 
 ## Data Analysis
 
+- Link to SQL Data Analysis file
+
 The analysis of the data involved writing SQL queries to breakdown and segement based on categories. Visualizations were from screenshots of SQL query outputs and Tableau generated graphs of that output.
 
 
@@ -183,9 +185,10 @@ Before diving into the NA sales data, I pulled up a brief overview of the top le
 Inspecting the top level data, the top 10 global game sales are all Nintendo published and produced. Similarily, 9 out of 10 of the top games for NA are also from Nintendo. Given the precentage of sales from the NA market, it makes sense why the top 10 games of both the global and NA were nearly identical. However, this immediately raises several questions: 
 
 - Why does Nintendo have the best individual performing game sales in NA?
-- Is it due to technological advances?
 - Is it due to console specific game franchises?
+- Is it due to technological advances?
 - How do the sales change over time?
+- What other factors influenced sales?
 - How does its competition compare? 
 
 Keeping these questions in mind, I proceeded to explore the rest of the data to answer these questions.
@@ -757,15 +760,22 @@ ORDER BY pub_sale DESC, na_sales desc
 
 ## Conclusions / Recommednations
 
+<br>
 
+### Insights ###
+---
 
-
+Overall, there are many factors that are involved in the success and growth of video game sales. To answer this, recall the list of questions directly below which were mentioned in a previous section.
 
 - Why does Nintendo have the best individual performing game sales in NA?
 - Is it due to technological advances?
 - Is it due to console specific game franchises?
 - How do the sales change over time?
+- What other factors influences sales?
 - How does its competition compare? 
+
+Using these questions as a guideline, I will explain the factors involved with growth in game sales in NA. The top 
+
 
 
 
@@ -780,12 +790,19 @@ reallife events and famous people can influence sales and expand the audience of
 
 
 
-it would be great if i had access to revnue/costs so i can see the profitabiliyu of the games. See how profitiable games are after intial sells
-ie.) are they any upkeep costs associated with the game like server maintence and bug patches
 
-likewise it would be interesting to see how profitable 'free-to play' games are despite not having any sales
-- see how their games are monetized: cosmetics, gacha, lootboxes, subscriptions, etc
 
+
+
+
+paid sponsorship and infflunecrs
+and more appeling to a general audience
+can help expand reach and make game more appealing to srrat
+
+
+## Future Considertaions 
+
+Other Areas to Explore
 
 For future research, it would be interesting to consider how covid lockdown has boosted certain games like among us
 as it encourages collaboration in a time where people cannot physically gather.
@@ -795,12 +812,14 @@ it would be interesting to see how pc game sales develop as platforms such as st
 also interesting in how handheld games change over time
 
 
-paid sponsorship and infflunecrs
-and more appeling to a general audience
-can help expand reach and make game more appealing to srrat
+it would be great if i had access to revnue/costs so i can see the profitabiliyu of the games. See how profitiable games are after intial sells
+ie.) are they any upkeep costs associated with the game like server maintence and bug patches
+
+likewise it would be interesting to see how profitable 'free-to play' games are despite not having any sales
+- see how their games are monetized: cosmetics, gacha, lootboxes, subscriptions, etc
 
 
-## Future Considertaions/Other Areas to Explore
+
 
 ## Limitations
 

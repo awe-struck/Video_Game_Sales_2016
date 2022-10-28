@@ -788,51 +788,28 @@ Over time, the competition of console producers incentivized the development of 
 ### Reccomendations ###
 ---
 
-To boost the amount sales in the NA market, it is imperative to increase the quality of game titles and consoles.
+To boost the amount sales in the NA market, it is imperative to increase the quality of game titles and the technology of the consoles.
 
-- For game titles, other than the obvious answers like making more games or improving gameplay and graphics; there are other avenues in which companies can improve in. As seen with the success in the sports genre, there is merit to tying into . 
+- For game titles, other than the obvious answers like making more games or improving gameplay and graphics; there are other avenues in which companies can improve in. As seen with the success in the sports genre, there is merit to collaborating and involving live events and famous people. **My reccomendation** is that game companies should collaborate more with people who produce content related to the released games. For instance, twitch and youtube streamers 
+already have a large following of fans. Giving them a free copy of a game or a beta version will expand audience reach and act to promote the game. Thus, potentially converting an entire community into potential consumers. 
 
-- Companies can . more in touch with community actions to coolabs with pst could include 
+- For improving console technology, research and development will act to expand on the type of games that can be played. **My reccomedation** is to put more resources into innovative technology that is not readily used by current consumers; an example of this is Virtual Reality (VR). Aside from the lack of games in the VR genre, there is a huge barrier to engaging in this genre. That is the fact that a VR headset is expensive and uncomfortable to wear. Improvements in such peripherals will act to enhance customer satisfaction and loyalty.
 
-encourage community engagment
-
-many things contribuet to sells like great games exlusives to build loyal fan base,
-
-new technology alllows for better gameplay and grahpics so pump money into R&D
-coulc include vr and connectiove to build community
-
-reallife events and famous people can influence sales and expand the audience of games
-
-
-
-
-
-
-paid sponsorship and infflunecrs
-and more appeling to a general audience
-can help expand reach and make game more appealing to srrat
+- As we enter the digital age, more and more is done online. **My reccomedation** is to improve connectively in games and provide a way for consumers to communicate with each other. This helps build a sense of community in the games which can boost gaming retention time and customer loyalty.
 
 <br>
 
 ## Future Considertaions 
 
-Other factors to check  is in a digital world, how good is the connectivity and online community of each game
+There are many other areas that I could explore or analyze from here:
 
-Other Areas to Explore
+- Since this data stops at 2016, it would be interesting to see how game sales how changed over time. For example, how events like COVID-19 lockdowns affected the sales of games.
 
-For future research, it would be interesting to consider how covid lockdown has boosted certain games like among us
-as it encourages collaboration in a time where people cannot physically gather.
+- From the early 2010s, smartphones have become increasingly more prevalent with more people playing mobile games. Thus, another point of research would be to see how the sales of handheld gaming consoles have changed.
 
-it would be interesting to see how pc game sales develop as platforms such as steam providing discounted games and esports being more prevalent now adays
+- Due to the limitations of the dataset, there is no data on age. So doing an analysis on sales by consumer age will give insight into the target demongraphic
 
-also interesting in how handheld games change over time
-
-
-it would be great if i had access to revnue/costs so i can see the profitabiliyu of the games. See how profitiable games are after intial sells
-ie.) are they any upkeep costs associated with the game like server maintence and bug patches
-
-likewise it would be interesting to see how profitable 'free-to play' games are despite not having any sales
-- see how their games are monetized: cosmetics, gacha, lootboxes, subscriptions, etc
+- Another limitation is that there are no profit,revenue or costs measures, making it harder to see the value of a game. Despite a game having low sales, it could very well be more profitable than a game with higher sales. To expand on that, certain games may have upkeep costs associated with the game such as server maintenance and bug patches. Likewise, it would be interesting to see how profitable 'free-to play' games are despite having no sales. This would be research into how the games are monetized and the impact of their various methods: cosmetics, gacha, lootboxes, subscriptions, etc.
 
 
 

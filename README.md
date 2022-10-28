@@ -22,7 +22,7 @@ Below is a brief summary of the columns from the cleaned dataset used in the ana
 
 ## Data Extraction and Cleaning
 
-- Link to SQL cleaning file:
+- Link to [SQL Cleaning file](https://github.com/awe-struck/Video_Game_Sales_2016/blob/main/Data_Cleaning/vg_sales_clean.sql)
 
 Pre-cleaned, the CSV file contained 16719 rows. The file was then converted into a .xlss format and uploaded to Microsoft SSMS for analysis. I proceeded to create a copy table to store this information and filter for the columns relevant to the analysis. These dropped columns contained NULL values and was data that was not fully scrapped from metacritic. Thus, the columns critic score,critic count, user score, user count, developer and rating were dropped. 
 
@@ -169,7 +169,7 @@ ORDER BY Year_of_Release
 
 ## Data Analysis
 
-- Link to SQL Data Analysis file
+- Link to [SQL Data Analysis file](https://github.com/awe-struck/Video_Game_Sales_2016/blob/main/Data_Analysis/sales_analysis.sql)
 
 The analysis of the data involved writing SQL queries to breakdown and segement based on categories. Visualizations were from screenshots of SQL query outputs and Tableau generated graphs of that output.
 

@@ -762,7 +762,7 @@ ORDER BY pub_sale DESC, na_sales desc
 
 <br>
 
-### Insights ###
+### Insights Summary ###
 ---
 
 Overall, there are many factors that are involved in the success and growth of video game sales. To answer this, recall the list of questions directly below which were mentioned in a previous section.
@@ -774,12 +774,21 @@ Overall, there are many factors that are involved in the success and growth of v
 - What other factors influences sales?
 - How does its competition compare? 
 
-Using these questions as a guideline, I will explain the factors involved with growth in game sales in NA. The top 
+Using these questions as a guideline, I will explain the factors involved with growth in game sales in NA. The top performing plaform producers were Nintendo, Sony and Microsoft at 1.11 billion, 1.050 billion and 680.44 million sales repectively. This order is due to the difference in initial presense in the video game industry. Being the earliest, Nintendo debuted its first console as the NES in 1983. While Sony debuted the PlayStation in 1994 and Microsoft debuted the XBOX in 2000. Given that Nintendo had more time in the video game market, it stands to reason why it has the highest cumulative video game sales compared the to other platforms producers. 
+
+From here, there Now, why and how did the other companies catch up
 
 
 
 
 (to answer what has caused (genre , technology getting better, media and other campaigns like movies)the growth of sales and how can game companies captilize on it)
+
+
+<br>
+
+### Reccomendations ###
+---
+
 
 many things contribuet to sells like great games exlusives to build loyal fan base,
 

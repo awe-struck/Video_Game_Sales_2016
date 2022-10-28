@@ -780,13 +780,7 @@ While Nintendo has the most sales out of all the console producers, it would be 
 
 Regarding the release of game titles, the overall volume and quality of video games increased dramatically over the years. This of course, boosted sales in the NA region. From 1980 - 2016, many well known game franchises were created and released. These franchises built up a reputation and a loyal fanbase leading to repeated sales over time.  Nintendo, EA and Activison became the top 3 game publishers in NA due having released the most games from well known IPs. From viewing the games sales based on genre,  it revealed how the preference for game type changed over time. Platform games were intially the best selling genre, but started to lose its status as top performing as time progressed. The sports genre in particular used real life events to help promote and market their product. By making games based on actual people or events, it drew in a new audience of consumers and provided an easy gateway into the gaming space. Ultimately, each genre did grow in sales by releasing a greater varity of game titles which have now become staple franchies. Furthermore, an advancement in platform technology allowed for better and more options.
 
-Over time, the competition of console producers incentivized the development of better gaming systems. This increased games sales as the improvements resulted in better gameplay and graphics. From 8-bit systems to full on computer like hardware, consoles have come a long way in its efforts to become the primary source of entertainment. Introducing new technology can change the way games can be experienced and expand upon a wider audience. With the creation of the Game Boy in 1989, handheld gaming became possible which allowed consumers to play on the go. Another example of innovation driving sales is the Wii which involved the implementaion of motion into gameplay. This console allowed for different kinds of games to be produced while providing a unique gaming experince for the consumer. Aside from the obvious ways of how technology improvement boosts sales, minute details suchs as peripherals came greatly enhance consumer enjoyment. One of many things the XBOX 360 did was create in xbox play a huge role in customer satisfactsoin like in xbox360 controller
-
-
-
-
-
-(to answer what has caused (genre , technology getting better, media and other campaigns like movies)the growth of sales and how can game companies captilize on it)
+Over time, the competition of console producers incentivized the development of better gaming systems. This increased games sales as the improvements resulted in better gameplay and graphics. From 8-bit systems to full on computer like hardware, consoles have come a long way in its efforts to become the primary source of entertainment. Introducing new technology can change the way games can be experienced and expand upon a wider audience. With the creation of the Game Boy in 1989, handheld gaming became possible which allowed consumers to play on the go. Another example of innovation driving sales is the Wii which involved the implementaion of motion into gameplay. This console allowed for different kinds of games to be produced while providing a unique gaming experince for the consumer. Aside from the obvious ways of how technology improvement boosts sales, minute details suchs as peripherals came greatly enhance consumer satisfaction; the XBOX 360 achieved this with its ergonomic controller.
 
 
 <br>
@@ -794,11 +788,18 @@ Over time, the competition of console producers incentivized the development of 
 ### Reccomendations ###
 ---
 
+To boost the amount sales in the NA market, it is imperative to increase the quality of game titles and consoles.
+
+- For game titles, other than the obvious answers like making more games or improving gameplay and graphics; there are other avenues in which companies can improve in. As seen with the success in the sports genre, there is merit to tying into . 
+
+- Companies can . more in touch with community actions to coolabs with pst could include 
+
+encourage community engagment
 
 many things contribuet to sells like great games exlusives to build loyal fan base,
 
 new technology alllows for better gameplay and grahpics so pump money into R&D
-
+coulc include vr and connectiove to build community
 
 reallife events and famous people can influence sales and expand the audience of games
 

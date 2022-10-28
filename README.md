@@ -778,13 +778,10 @@ Using these questions as a guideline, I will explain the factors involved with g
 
 While Nintendo has the most sales out of all the console producers, it would be remiss not to mention the growth of its competitors. Specifically, how these companies grew their sales to the point where it contends wilth Nintendo. These two factors are the release of notable game IPs and the advancement of technology for consoles. 
 
-Regarding the release of game titles, the overall volume and quality of video games increased dramatically over the years. This of course, boosted sales in the NA region. From 1980 - 2016, many well known game franchises were created and released. These franchises built up a reputation and a loyal fanbase leading to repeated sales over time.  Nintendo, EA and Activison became the top 3 game publishers in NA due having released the most games from well known IPs. From viewing the games sales based on genre,  it revealed how the preference for game type changed over time. Platform games were intially the best selling genre, but started to lose its status as top performing as time progressed. The sports genre in particular used real life events to help promote and market their product. By making games based on actual people or events, it drew in a new audience of consumers and provided an easy gateway into the gaming space.
+Regarding the release of game titles, the overall volume and quality of video games increased dramatically over the years. This of course, boosted sales in the NA region. From 1980 - 2016, many well known game franchises were created and released. These franchises built up a reputation and a loyal fanbase leading to repeated sales over time.  Nintendo, EA and Activison became the top 3 game publishers in NA due having released the most games from well known IPs. From viewing the games sales based on genre,  it revealed how the preference for game type changed over time. Platform games were intially the best selling genre, but started to lose its status as top performing as time progressed. The sports genre in particular used real life events to help promote and market their product. By making games based on actual people or events, it drew in a new audience of consumers and provided an easy gateway into the gaming space. Ultimately, each genre did grow in sales by releasing a greater varity of game titles which have now become staple franchies. Furthermore, an advancement in platform technology allowed for better and more options.
 
-This is due to other genres releasing a greater varity of game titles which have become staple franchies. Furthermore, an advancement ing
+Over time, the competition of console producers incentivized the development of better gaming systems. This increased games sales as the improvements resulted in better gameplay and graphics. From 8-bit systems to full on computer like hardware, consoles have come a long way in its efforts to become the primary source of entertainment. Introducing new technology can change the way games can be experienced and expand upon a wider audience. With the creation of the Game Boy in 1989, handheld gaming became possible which allowed consumers to play on the go. Another example of innovation driving sales is the Wii which involved the implementaion of motion into gameplay. This console allowed for different kinds of games to be produced while providing a unique gaming experince for the consumer. Aside from the obvious ways of how technology improvement boosts sales, minute details suchs as peripherals came greatly enhance consumer enjoyment. One of many things the XBOX 360 did was create in xbox play a huge role in customer satisfactsoin like in xbox360 controller
 
-The top 3 publishers all had the . Notable game franchise build on a reputation and customer loyalty and fanbase
-
-Many games were console specific. This drove consumers to pick consoles based on game types provided budge was an issue. Another factor that played into this was advancmtent of playfrom
 
 
 
@@ -810,12 +807,11 @@ reallife events and famous people can influence sales and expand the audience of
 
 
 
-
-
 paid sponsorship and infflunecrs
 and more appeling to a general audience
 can help expand reach and make game more appealing to srrat
 
+<br>
 
 ## Future Considertaions 
 
@@ -837,10 +833,6 @@ ie.) are they any upkeep costs associated with the game like server maintence an
 likewise it would be interesting to see how profitable 'free-to play' games are despite not having any sales
 - see how their games are monetized: cosmetics, gacha, lootboxes, subscriptions, etc
 
-
-
-
-## Limitations
 
 
 

@@ -758,7 +758,7 @@ ORDER BY pub_sale DESC, na_sales desc
 
 <br>
 
-## Conclusions / Recommednations
+## Conclusions 
 
 <br>
 

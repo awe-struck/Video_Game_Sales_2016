@@ -13,13 +13,12 @@ Cleaning Data in SQL Queries
 SELECT
 	*
 FROM video_game_sales.dbo.games_info
-ORDER BY Global_Sales DESC
--- COUNT 16719
+ORDER BY Global_Sales DESC;
 
 
-DROP TABLE IF EXISTS video_game_sales.dbo.copygames
+DROP TABLE IF EXISTS video_game_sales.dbo.copygames;
 CREATE TABLE video_game_sales.dbo.copygames (
-	Name NVARCHAR(255)
+    Name NVARCHAR(255) PRIMARY KEY
    ,Platform_Producer NVARCHAR(255)
    ,Platform NVARCHAR(255)
    ,Year_of_Release FLOAT
@@ -30,24 +29,24 @@ CREATE TABLE video_game_sales.dbo.copygames (
    ,JP_Sales FLOAT
    ,Other_Sales FLOAT
    ,Global_Sales FLOAT
-)
+);
 
 
 INSERT INTO video_game_sales.dbo.copygames
 	SELECT
-		Name
+	    Name
 	   ,CASE
-			WHEN Platform IN ('PC') THEN 'Misc Computer Company'
-			WHEN Platform IN ('NES', 'SNES', 'N64', 'GC', 'Wii', 'WiiU', 'GB', 'GBA', 'DS', '3DS') THEN 'Nintendo'
-			WHEN Platform IN ('PS', 'PS2', 'PS3', 'PS4', 'PSP', 'PSV') THEN 'Sony'
-			WHEN Platform IN ('XB', 'X360', 'XOne') THEN 'Microsoft'
-			WHEN Platform IN ('2600') THEN 'Atari'
-			WHEN Platform IN ('DC', 'SAT', 'GEN', 'GG', 'SCD') THEN 'Sega'
-			WHEN Platform IN ('WS') THEN 'Bandai'
-			WHEN Platform IN ('NG') THEN 'SNK'
-			WHEN Platform IN ('TG16', 'PCFX') THEN 'Nec'
-			WHEN Platform IN ('3DO') THEN 'Panasonic'
-		END Platform_Producer
+		WHEN Platform IN ('PC') THEN 'Misc Computer Company'
+		WHEN Platform IN ('NES', 'SNES', 'N64', 'GC', 'Wii', 'WiiU', 'GB', 'GBA', 'DS', '3DS') THEN 'Nintendo'
+		WHEN Platform IN ('PS', 'PS2', 'PS3', 'PS4', 'PSP', 'PSV') THEN 'Sony'
+		WHEN Platform IN ('XB', 'X360', 'XOne') THEN 'Microsoft'
+		WHEN Platform IN ('2600') THEN 'Atari'
+		WHEN Platform IN ('DC', 'SAT', 'GEN', 'GG', 'SCD') THEN 'Sega'
+		WHEN Platform IN ('WS') THEN 'Bandai'
+		WHEN Platform IN ('NG') THEN 'SNK'
+		WHEN Platform IN ('TG16', 'PCFX') THEN 'Nec'
+		WHEN Platform IN ('3DO') THEN 'Panasonic'
+	    END Platform_Producer
 	   ,Platform
 	   ,Year_of_Release
 	   ,Genre
@@ -57,13 +56,13 @@ INSERT INTO video_game_sales.dbo.copygames
 	   ,JP_Sales
 	   ,Other_Sales
 	   ,Global_Sales
-	FROM video_game_sales.dbo.games_info
+	FROM video_game_sales.dbo.games_info;
 
 
 SELECT
 	*
 FROM video_game_sales.dbo.copygames
-ORDER BY Global_Sales DESC
+ORDER BY Global_Sales DESC;
 
 
 
@@ -75,7 +74,7 @@ ORDER BY Global_Sales DESC
 SELECT
 	*
 FROM video_game_sales.dbo.copygames
-WHERE Name IS NULL
+WHERE Name IS NULL;
 -- Name is missing two values both are Mortal Kombat II and Mortal Kombat II (JP Sales) for gen
 -- from data source VGchartz.com
 
@@ -87,7 +86,7 @@ SET Name = 'Mortal Kombat II'
    ,Global_Sales = Global_Sales + 0.03
 WHERE Name IS NULL
 AND Publisher = 'Acclaim Entertainment'
-AND Platform = 'GEN'
+AND Platform = 'GEN';
 
 
 --SELECT *
@@ -95,7 +94,7 @@ DELETE FROM video_game_sales.dbo.copygames
 WHERE Name = 'Mortal Kombat II'
 	AND Publisher = 'Acclaim Entertainment'
 	AND Platform = 'GEN'
-	AND NA_Sales = 0
+	AND NA_Sales = 0;
 
 
 -- Over 200 games without year of realse so remove, also for some realses after 2016 so remove  273 rows total
@@ -104,17 +103,16 @@ SELECT
 FROM video_game_sales.dbo.copygames
 WHERE Year_of_Release > 2016
 --WHERE Year_of_Release IS NULL
-ORDER BY Publisher, Name
+ORDER BY Publisher, Name;
 
 DELETE FROM video_game_sales.dbo.copygames
 WHERE Year_of_Release IS NULL
-	OR Year_of_Release > 2016
-
+	OR Year_of_Release > 2016;
+	
 
 SELECT
 	*
-FROM video_game_sales.dbo.copygames
--- COUNT 16445
+FROM video_game_sales.dbo.copygames;
 
 
 
@@ -132,7 +130,7 @@ AS
 SELECT
 	*
 FROM cte_dupl
-WHERE row_num > 1
+WHERE row_num > 1;
 
 
 
@@ -144,7 +142,7 @@ WHERE row_num > 1
 SELECT DISTINCT
 	Year_of_Release
 FROM video_game_sales.dbo.copygames
-ORDER BY Year_of_Release
+ORDER BY Year_of_Release;
 
 
 
